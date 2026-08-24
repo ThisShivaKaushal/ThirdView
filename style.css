@@ -5,24 +5,26 @@
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    background: #f7f7f8;
-    color: #222;
+    background: #1b1e27;
+    color: #eae7dd;
 }
 
 header {
-    padding: 22px 16px;
-    background: #fff;
-    border-bottom: 1px solid #e2e2e2;
+    padding: 26px 16px 20px;
+    border-bottom: 2px solid #3a3529;
 }
 
 header h1 {
-    margin: 0 0 4px 0;
-    font-size: 21px;
+    display: inline-block;
+    margin: 0;
+    padding-bottom: 6px;
+    font-size: 22px;
+    border-bottom: 3px solid #e0a53f;
 }
 
 header p {
-    margin: 0;
-    color: #666;
+    margin: 10px 0 0 0;
+    color: #9b9787;
     font-size: 14px;
     max-width: 560px;
 }
@@ -38,19 +40,19 @@ main {
 }
 
 .warning {
-    background: #fdf2f2;
-    border: 1px solid #f2c1c1;
-    color: #a33;
+    background: #2e1f1f;
+    border: 1px solid #6b3636;
+    color: #e2a3a3;
     padding: 12px 14px;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-bottom: 16px;
     font-size: 14px;
 }
 
 .card {
-    background: #fff;
-    border: 1px solid #e2e2e2;
-    border-radius: 4px;
+    background: #242836;
+    border: 1px solid #3a3529;
+    border-radius: 10px;
     padding: 16px;
     margin-bottom: 16px;
 }
@@ -58,6 +60,7 @@ main {
 .card h2 {
     font-size: 15px;
     margin: 0;
+    color: #eae7dd;
 }
 
 video {
@@ -65,7 +68,7 @@ video {
     max-height: 380px;
     background: #000;
     display: block;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-bottom: 12px;
 }
 
@@ -75,26 +78,27 @@ video {
     align-items: center;
     justify-content: center;
     gap: 4px;
-    border: 2px dashed #ccc;
-    border-radius: 4px;
+    border: 2px dashed #4a4636;
+    border-radius: 8px;
     padding: 42px 20px;
     cursor: pointer;
     text-align: center;
+    color: #eae7dd;
 }
 
 #uploadLabel:hover {
-    border-color: #999;
-    background: #fafafa;
+    border-color: #e0a53f;
+    background: #2a2e3d;
 }
 
 .small {
     font-size: 12px;
-    color: #888;
+    color: #9b9787;
 }
 
 .bar {
     height: 6px;
-    background: #eee;
+    background: #33384a;
     border-radius: 3px;
     margin-top: 10px;
     overflow: hidden;
@@ -103,7 +107,7 @@ video {
 #downloadBar {
     height: 100%;
     width: 0%;
-    background: #3366cc;
+    background: #e0a53f;
 }
 
 .row {
@@ -120,32 +124,40 @@ video {
 input[type="text"] {
     flex: 1;
     padding: 10px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #3a3529;
+    border-radius: 8px;
     font-size: 14px;
+    background: #1b1e27;
+    color: #eae7dd;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+input[type="text"]::placeholder {
+    color: #6e6a5c;
 }
 
 input[type="text"]:focus {
     outline: none;
-    border-color: #3366cc;
+    border-color: #e0a53f;
 }
 
 button {
     padding: 10px 18px;
     border: none;
-    border-radius: 4px;
-    background: #3366cc;
-    color: #fff;
+    border-radius: 8px;
+    background: #e0a53f;
+    color: #1b1e27;
     font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
 }
 
 button:hover:not(:disabled) {
-    background: #2b56ad;
+    background: #c98f2e;
 }
 
 button:disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
 }
 
@@ -154,19 +166,44 @@ button:disabled {
     width: 100%;
     margin-top: 10px;
     background: transparent;
-    color: #3366cc;
-    border: 1px solid #ccd6ea;
+    color: #e0a53f;
+    border: 1px solid #4a4636;
+    font-weight: 500;
 }
 
 .secondary:hover:not(:disabled) {
-    background: #f2f5fb;
+    background: #2a2e3d;
 }
 
 #status {
     font-size: 13px;
-    color: #777;
+    color: #9b9787;
     min-height: 16px;
     margin: 10px 0 0 0;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.chip {
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    background: #1b1e27;
+    color: #eae7dd;
+    border: 1px solid #4a4636;
+    border-radius: 999px;
+}
+
+.chip:hover:not(:disabled) {
+    background: #2a2e3d;
+    border-color: #e0a53f;
+    color: #e0a53f;
 }
 
 .result {
@@ -174,26 +211,26 @@ button:disabled {
     gap: 10px;
     width: 100%;
     padding: 8px;
-    border: 1px solid #eee;
-    border-radius: 4px;
+    border: 1px solid #3a3529;
+    border-radius: 8px;
     margin-bottom: 8px;
-    background: #fff;
+    background: #242836;
     cursor: pointer;
     text-align: left;
     font: inherit;
-    color: inherit;
+    color: #eae7dd;
 }
 
 .result:hover {
-    background: #f5f7fb;
-    border-color: #d6ddec;
+    background: #2a2e3d;
+    border-color: #e0a53f;
 }
 
 .result img {
     width: 78px;
     height: 54px;
     object-fit: cover;
-    border-radius: 3px;
+    border-radius: 6px;
     flex-shrink: 0;
 }
 
@@ -207,18 +244,19 @@ button:disabled {
     justify-content: space-between;
     font-size: 13px;
     margin-bottom: 5px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 .result .meter {
     height: 4px;
-    background: #eee;
+    background: #33384a;
     border-radius: 2px;
     overflow: hidden;
 }
 
 .result .meter div {
     height: 100%;
-    background: #3366cc;
+    background: #e0a53f;
 }
 
 @media (min-width: 800px) {
