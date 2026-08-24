@@ -11,20 +11,24 @@ document.addEventListener("keydown", (e) => {
     if (e.key !== '/') return;
 
     const tag = document.activeElement.tagName;
-    if (tag === 'Input' || tag === 'TEXTAREA') return; //don't hijack while typing somewhere😁
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return; //don't hijack while typing somewhere😁
 
     e.preventDefault();
     searchBox.focus();
 });
 
 //quick-try chips: click one and it runs the search for you
-//stays huidden until search is actually usable (video + model both )
+//stays hidden until search is actually usable (video + model both )
 
 if (quickTries) {
     quickTries.querySelectorAll(".chip").forEach((chip) => {
         chip.addEventListener("click", () => {
             if (searchBtn.disabled) return;
-            searchBtn.click(); //start the logic of app.js
+            // put the chip text into the search box, then start the search
+            searchBox.value = chip.textContent.trim();
+            searchBox.focus();
+            // trigger the button (app.js has the click listener attached)
+            searchBtn.click();
         });
     });
 
