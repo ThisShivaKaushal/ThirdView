@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ThirdView — search inside your videos</title>
+    <title>ThirdView</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -12,70 +12,80 @@
 
     <header>
         <h1>ThirdView</h1>
-        <p>Describe a moment and it'll find it in your video. Everything runs in the browser — nothing gets uploaded
-            anywhere.</p>
+        <p>Type what you remember and jump straight to it. Works on what you can see and what people said.</p>
     </header>
 
     <main>
 
-        <div id="mobileWarning" class="warning hidden">
+        <div id="mobilewarning" class="warning hidden">
             Heads up — on phones, videos over 10 minutes can get slow. Shorter clips work best for now.
         </div>
 
-        <div id="downloadBox" class="card">
-            <p id="downloadText">Loading the model, this only happens once...</p>
+        <div id="download-box" class="download hidden">
+            <p id="Downloadtext">Loading the model...</p>
             <div class="bar">
-                <div id="downloadBar"></div>
+                <div id="downloadbar"></div>
             </div>
         </div>
 
-        <div class="layout">
+        <div class="Layout">
 
-            <div class="left">
-                <div class="card">
-                    <video id="player" class="hidden" controls></video>
-                    <label id="uploadLabel" for="fileInput">
-                        <p><strong>Click to upload a video</strong></p>
-                        <span class="small">any format, up to ~1 hour, stays on your device</span>
-                    </label>
-                    <input type="file" id="fileInput" accept="video/*" hidden />
-                    <button id="sampleBtn" class="secondary">Or try it with a sample video (1 min)</button>
+            <div class="upload-part">
+                <video id="player" class="hidden" controls></video>
+                <label id="upload-label" for="file-input">
+                    <p><strong>Click to upload a video</strong></p>
+                    <span class="Small">Any format, up to ~1 hour, stays on your devices</span>
+                </label>
+                <input type="file" id="file-input" accept="video/*" hidden />
+                <button id="samplebutton" class="sample" type="button">Or try it with a sample video (1
+                    min)</button>
+            </div>
+
+            <div class="ytbox">
+                <h2>Got this video on youtube too?</h2>
+                <p class="Small">Paste the Youtube link.</p>
+                <div class="ytlinkpaste">
+                    <input type="text" id="ytinput" placeholder="https://youtube.com/watch?v=...." />
+                    <button id="ytbutton" type="button">Use link</button>
                 </div>
+                <p id="ytstatus" class="Small"></p>
+                <iframe id="youtubeframes" class="hidden" allow="autoplay" allowfullscreen></iframe>
+            </div>
 
-                <div class="card">
-                    <div class="row">
-                        <input type="text" id="searchBox" placeholder="e.g. dog running in a park" disabled />
-                        <button id="searchBtn" disabled>Search</button>
-                    </div>
-                    <div id="quickTries" class="chips hidden">
-                        <span class="small">try:</span>
-                        <button type="button" class="chip">The bridge in MrBeast's Squid Game video</button>
-                        <button type="button" class="chip">When the first girl gets shot</button>
-                        <button type="button" class="chip">Jimmy said "$456,000."</button>
-                        <button type="button" class="chip">when 438 players remaining</button>
-                    </div>
-                    <p id="status"></p>
+            <div class="searchpanel">
+                <div class="searchbar">
+                    <input type="text" id="searchbox" placeholder="e.g. bridge in mr beast's squid game video"
+                        disabled />
+                    <button id="searchbutton" disabled type="button">Search</button>
                 </div>
             </div>
 
-            <div class="right">
-                <div class="card">
-                    <div class="row space-between">
-                        <h2>Results</h2>
-                        <span id="resultCount" class="small"></span>
-                    </div>
-                    <div id="results">
-                        <p class="small">Upload a video, then search for something to see the matching frames here.</p>
-                    </div>
+            <div id="quicktries-button" class="quickclickers hidden">
+                <span class="Small">try:</span>
+                <button type="button" class="quickclicker">The bridge in MrBeast's Squid Game video</button>
+                <button type="button" class="quickclicker">When the first girl gets shot</button>
+                <button type="button" class="quickclicker">Jimmy said "$456,000."</button>
+                <button type="button" class="quickclicker">when 438 players remaining</button>
+            </div>
+            <p class="small taghint">
+                Type <code>@visual</code> for an Eyewitness search (only what's shown), <code>@vocal</code> for an
+                Earwitness search (only what's said). Leave both out and it checks everthing, but may be slow.
+            </p>
+            <p id="status"></p>
+
+            <div class="result-part">
+                <div class="horizontal space-between">
+                    <h2>Results</h2>
+                    <span id="resultcount" class="Small"></span>
+                </div>
+                <div id="results">
+                    <p class="small">Upload a video, then search for something to see the matching frames here.</p>
                 </div>
             </div>
-
         </div>
     </main>
 
     <canvas id="canvas" width="224" height="224" hidden></canvas>
-    <script type="module" src="app.js"></script>
-    <script type="module" src="extras.js"></script>
 </body>
 
 </html>
